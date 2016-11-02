@@ -1,0 +1,30 @@
+@import "base/base";
+
+%ellipsis {overflow: hidden; white-space: nowrap; text-overflow: ellipsis;}
+a { color: #fff}
+.page { @extend %position; bottom: 0; height: 100%; min-height: 400px;  background-color:$contentBg; }
+header { @extend %position; height: 50px; line-height: 50px; background-color: $redColor;color: $btnColor; font-size: $maxFont; text-align: center;
+
+  ul {  /*@include flexbox();*/
+    position:relative;
+    .left-btn { @extend %position; width: 50px;  }
+    .header-tit{ /*@include flex(1)*/; padding: 0 50px;
+      p { @extend %ellipsis}
+    }
+    .right-btn { @extend .left-btn; left: auto; right: 0;  }
+  }
+}
+
+.content {@extend %position; top: 50px;  bottom: 50px; padding: 10px;}
+.has-sub-header {top: 100px;}
+.not-footer { bottom: 0}
+.index-button { @include button(70px,#000,#999); }
+
+footer { @extend %position;top: auto;  bottom: 0; height: 50px; line-height: 50px;text-align: center;background-color: $fontColor;color: $btnColor;font-size: $midFont;
+
+  ul {@include flexbox();}
+  li { width: 20%;}
+}
+
+
+#loading { @extend %position; bottom: 0; background-color: rgba(0,0,0,.2); z-index: 9999999; text-align: center; line-height: 100vh; color: #fff; font-size: $maxFont; font-weight: bold; display: none}
